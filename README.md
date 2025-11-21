@@ -27,7 +27,7 @@ La première étape du TP consistait à créer un projet STM32 sous **STM32CubeI
 
 Nous avons d’abord testé la LED LD2 afin de valider l’accès au GPIO. L’allumage et le clignotement ont fonctionné comme prévu, confirmant la bonne configuration du microcontrôleur et du clocking de base. 
 
-<img src="Clignotement_LED" width="300">
+<img src="Clignotement_LED" width="500">
 
 
 Nous avons ensuite configuré l’USART2, relié au ST-Link interne, afin de communiquer avec un terminal série sur PC. La transmission a été validée en envoyant des messages simples, puis nous avons redirigé la fonction `printf()` vers cette liaison afin de simplifier le débogage et l'affichage des logs durant la suite du projet. Ces premières étapes ont permis d’obtenir une interface de sortie fiable pour vérifier le fonctionnement des modules développés.
