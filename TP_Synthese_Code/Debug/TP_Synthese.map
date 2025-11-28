@@ -4092,7 +4092,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .debug_macro   0x00000000       0x43 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .debug_line    0x00000000      0x678 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
- .debug_str     0x00000000     0xb666 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
+ .debug_str     0x00000000     0xb67b ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/croutine.o
@@ -4203,7 +4203,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x91 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_macro   0x00000000       0x19 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_line    0x00000000      0xafa ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
- .debug_str     0x00000000     0xc191 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
+ .debug_str     0x00000000     0xc1a6 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .debug_frame   0x00000000      0x1a4 ./Middlewares/Third_Party/FreeRTOS/Source/event_groups.o
  .ARM.attributes
@@ -4526,7 +4526,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
  .debug_macro   0x00000000       0x18 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
  .debug_line    0x00000000      0xf85 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
- .debug_str     0x00000000     0xc103 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
+ .debug_str     0x00000000     0xc118 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
  .debug_frame   0x00000000      0x350 ./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o
  .ARM.attributes
@@ -4748,7 +4748,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x87 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .debug_macro   0x00000000       0x97 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .debug_line    0x00000000      0x6a3 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
- .debug_str     0x00000000     0xc149 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
+ .debug_str     0x00000000     0xc15e ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/FreeRTOS/Source/timers.o
@@ -6684,40 +6684,40 @@ LOAD C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0001d076      0x94b ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .debug_line    0x0001d9c1      0x9ae ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
 
-.debug_str      0x00000000    0xfff23
- .debug_str     0x00000000    0xfff23 ./Core/Src/drv_uart.o
+.debug_str      0x00000000    0xffeed
+ .debug_str     0x00000000    0xffeed ./Core/Src/drv_uart.o
                               0xf55ad (size before relaxing)
- .debug_str     0x000fff23    0xf5744 ./Core/Src/freertos.o
- .debug_str     0x000fff23    0xec164 ./Core/Src/gpio.o
- .debug_str     0x000fff23    0xf6692 ./Core/Src/main.o
- .debug_str     0x000fff23     0x7aa1 ./Core/Src/shell.o
- .debug_str     0x000fff23    0xec590 ./Core/Src/spi.o
- .debug_str     0x000fff23    0xec594 ./Core/Src/stm32l4xx_hal_msp.o
- .debug_str     0x000fff23    0xec9f8 ./Core/Src/stm32l4xx_hal_timebase_tim.o
- .debug_str     0x000fff23    0xec779 ./Core/Src/stm32l4xx_it.o
- .debug_str     0x000fff23     0x99ef ./Core/Src/syscalls.o
- .debug_str     0x000fff23     0x778d ./Core/Src/sysmem.o
- .debug_str     0x000fff23    0xebf48 ./Core/Src/system_stm32l4xx.o
- .debug_str     0x000fff23    0xecdb5 ./Core/Src/usart.o
- .debug_str     0x000fff23       0x8f ./Core/Startup/startup_stm32l476rgtx.o
- .debug_str     0x000fff23    0xecb47 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
- .debug_str     0x000fff23    0xec7c1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
- .debug_str     0x000fff23    0xec1b2 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.o
- .debug_str     0x000fff23    0xec0c1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
- .debug_str     0x000fff23    0xec4a3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
- .debug_str     0x000fff23    0xec58e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
- .debug_str     0x000fff23    0xec707 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
- .debug_str     0x000fff23    0xec763 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi.o
- .debug_str     0x000fff23    0xed288 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
- .debug_str     0x000fff23    0xecb9c ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
- .debug_str     0x000fff23    0xecca0 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
- .debug_str     0x000fff23    0xec4cc ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.o
- .debug_str     0x000fff23     0xed1f ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_str     0x000fff23     0xac41 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_str     0x000fff23     0xc5d4 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
- .debug_str     0x000fff23     0xd2fb ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
- .debug_str     0x000fff23     0xb97b ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_str     0x000fff23     0xb583 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_str     0x000ffeed    0xf5744 ./Core/Src/freertos.o
+ .debug_str     0x000ffeed    0xec164 ./Core/Src/gpio.o
+ .debug_str     0x000ffeed    0xf6692 ./Core/Src/main.o
+ .debug_str     0x000ffeed     0x7aa1 ./Core/Src/shell.o
+ .debug_str     0x000ffeed    0xec590 ./Core/Src/spi.o
+ .debug_str     0x000ffeed    0xec594 ./Core/Src/stm32l4xx_hal_msp.o
+ .debug_str     0x000ffeed    0xec9f8 ./Core/Src/stm32l4xx_hal_timebase_tim.o
+ .debug_str     0x000ffeed    0xec779 ./Core/Src/stm32l4xx_it.o
+ .debug_str     0x000ffeed     0x99ef ./Core/Src/syscalls.o
+ .debug_str     0x000ffeed     0x778d ./Core/Src/sysmem.o
+ .debug_str     0x000ffeed    0xebf48 ./Core/Src/system_stm32l4xx.o
+ .debug_str     0x000ffeed    0xecdb5 ./Core/Src/usart.o
+ .debug_str     0x000ffeed       0x8f ./Core/Startup/startup_stm32l476rgtx.o
+ .debug_str     0x000ffeed    0xecb47 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
+ .debug_str     0x000ffeed    0xec7c1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
+ .debug_str     0x000ffeed    0xec1b2 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.o
+ .debug_str     0x000ffeed    0xec0c1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
+ .debug_str     0x000ffeed    0xec4a3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
+ .debug_str     0x000ffeed    0xec58e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
+ .debug_str     0x000ffeed    0xec707 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
+ .debug_str     0x000ffeed    0xec763 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi.o
+ .debug_str     0x000ffeed    0xed288 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
+ .debug_str     0x000ffeed    0xecb9c ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
+ .debug_str     0x000ffeed    0xecca0 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
+ .debug_str     0x000ffeed    0xec4cc ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.o
+ .debug_str     0x000ffeed     0xed34 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_str     0x000ffeed     0xac56 ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_str     0x000ffeed     0xc5e9 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
+ .debug_str     0x000ffeed     0xd310 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_str     0x000ffeed     0xb990 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_str     0x000ffeed     0xb598 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Core/Src/drv_uart.o
