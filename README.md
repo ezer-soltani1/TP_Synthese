@@ -52,8 +52,7 @@ Celui-ci s’exécute dans une tâche FreeRTOS dédiée et utilise des interrupt
 
 Cette base logicielle a servi de fondation pour l’intégration des éléments audio et du pilotage des LEDs.
 
-```
-## 2. Le GPIO Expander et le VU‑Mètre
+## 2) Le GPIO Expander et le VU‑Mètre
 
 ### 2.1 Configuration
 Le GPIO Expander utilisé dans ce projet est le **MCP23S17**, un expander SPI permettant d’ajouter 16 lignes d’E/S au microcontrôleur. Sa datasheet a été consultée afin d’identifier son mode de fonctionnement, son protocole SPI ainsi que les registres nécessaires à la configuration.
