@@ -1,6 +1,7 @@
 "./Core/Src/drv_uart.o"
 "./Core/Src/freertos.o"
 "./Core/Src/gpio.o"
+"./Core/Src/leds.o"
 "./Core/Src/main.o"
 "./Core/Src/shell.o"
 "./Core/Src/spi.o"

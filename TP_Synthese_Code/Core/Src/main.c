@@ -30,6 +30,7 @@
 
 #include "shell.h"
 #include "drv_uart.h"
+#include "leds.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,12 +40,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-/* MCP2S17 registers and opcode */
-#define MCP_IODIRA    0x00
-#define MCP_IODIRB    0x01
-#define MCP_OLATA     0x14
-#define MCP_OLATB     0x15
-#define MCP_OPCODE_WRITE 0x40
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -74,59 +69,6 @@ int __io_putchar(int ch)
 	return ch;
 }
 
-void LedTask(void *argument)
-{
-    // Reset
-    HAL_GPIO_WritePin(VU_nRESET_GPIO_Port, VU_nRESET_Pin, GPIO_PIN_RESET);
-    HAL_Delay(1);
-    HAL_GPIO_WritePin(VU_nRESET_GPIO_Port, VU_nRESET_Pin, GPIO_PIN_SET);
-    HAL_Delay(1);
-
-    uint8_t tx_data[3];
-
-    // Configurer Port A en sortie
-    tx_data[0] = MCP_OPCODE_WRITE;
-    tx_data[1] = MCP_IODIRA;
-    tx_data[2] = 0x00; // Tous les pins en sortie
-    HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_RESET);
-    HAL_SPI_Transmit(&hspi3, tx_data, 3, HAL_MAX_DELAY);
-    HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_SET);
-    HAL_Delay(1);
-
-    // Configurer Port B en sortie
-    tx_data[1] = MCP_IODIRB;
-    tx_data[2] = 0x00;
-    HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_RESET);
-    HAL_SPI_Transmit(&hspi3, tx_data, 3, HAL_MAX_DELAY);
-    HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_SET);
-
-    tx_data[0] = MCP_OPCODE_WRITE;
-
-    uint8_t GPIO_value = 0x01;
-    for(;;)
-    {
-        tx_data[2] = GPIO_value;
-
-        // Port A
-        tx_data[1] = MCP_OLATA;
-        HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_RESET);
-        HAL_SPI_Transmit(&hspi3, tx_data, 3, HAL_MAX_DELAY);
-        HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_SET);
-
-        // Port B
-        tx_data[1] = MCP_OLATB;
-        HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_RESET);
-        HAL_SPI_Transmit(&hspi3, tx_data, 3, HAL_MAX_DELAY);
-        HAL_GPIO_WritePin(VU_nCS_GPIO_Port, VU_nCS_Pin, GPIO_PIN_SET);
-
-        HAL_Delay(100);
-
-        GPIO_value <<= 1;
-        if (GPIO_value == 0x00 ) {
-        	GPIO_value = 0x01;
-        }
-    }
-}
 
 void ShellTask(void * unused)
 {
@@ -139,6 +81,13 @@ void ShellTask(void * unused)
 	h_shell.drv = drv_shell;
 
 	shell_init(&h_shell);
+
+	// Init LED Driver and add command
+	LED_Driver_Init(&led_driver);
+	shell_add(&h_shell, 'l', shell_control_led, "Control LEDs: l <port> <pin> <state>");
+	shell_add(&h_shell, 'k', shell_chenillard, "Chenillard effect");
+	shell_add(&h_shell, 'b', shell_blink_all, "Blink all LEDs");
+
 	shell_run(&h_shell);
 }
 /* USER CODE END 0 */
@@ -179,17 +128,9 @@ int main(void)
   uartRxSemaphore = xSemaphoreCreateBinary();
   HAL_UART_Receive_IT(&huart2, &rxCharBuffer, 1);
 
-  char* msg = "Test USART2\r\n";
-  printf(msg);
-
   if (xTaskCreate(ShellTask, "Shell", 1024, NULL, 1, NULL) != pdPASS)
   {
 	  printf("Task Creation Failed\r\n");
-	  Error_Handler();
-  }
-  if (xTaskCreate(LedTask, "VUMeter", 256, NULL, 1, NULL) != pdPASS)
-  {
-	  printf("LED Task Creation Failed\r\n");
 	  Error_Handler();
   }
   /* USER CODE END 2 */
@@ -209,8 +150,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
