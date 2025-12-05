@@ -465,5 +465,20 @@ sgtl5000_handle.i2c_address = SGTL5000_I2C_ADDR_WRITE;
 
 // Configuration effective du CODEC
 sgtl5000_init(&sgtl5000_handle);
+
 ```
+## 3.3 Signaux I2S
+
+### Démarrage des Transferts Audio (I2S/SAI) en Mode DMA
+
+Cette étape initialise et démarre les transferts de données audio pour la transmission (TX) et la réception (RX) via le périphérique **SAI (Serial Audio Interface)** en utilisant le mode **DMA**.
+
+### Code d'Initialisation
+
+Les fonctions `HAL_SAI_Transmit_DMA()` et `HAL_SAI_Receive_DMA()` sont utilisées pour lancer les transferts cycliques :
+
+```c
+// Start SAI DMA transfers
+HAL_SAI_Transmit_DMA(&hsai_BlockA2, (uint8_t*)audio_tx_buffer, AUDIO_BUFFER_SIZE);
+HAL_SAI_Receive_DMA(&hsai_BlockB2, (uint8_t*)audio_rx_buffer, AUDIO_BUFFER_SIZE);
 
