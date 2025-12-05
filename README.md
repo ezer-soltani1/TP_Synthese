@@ -367,7 +367,7 @@ HAL_SAI_ENABLE(&hsai_BlockA2);
 
 Le CODEC SGTL5000 est piloté via l'interface I2C pour sa configuration interne (volumes, routage, horloges, etc.). Une bibliothèque dédiée composée des fichiers `sgtl5000.c` et `sgtl5000.h` a été développée pour encapsuler ces échanges.
 
-### Lecture du CHIP_ID
+### 🔹Lecture du CHIP_ID
 
 La première étape de validation consiste à lire le registre d'identification du composant. L'adresse I2C de base est `0x0A` (7 bits), ce qui correspond à `0x14` en écriture et `0x15` en lecture.
 
@@ -378,7 +378,7 @@ sgtl5000_i2c_read_register(h_sgtl5000, SGTL5000_CHIP_ID, &chip_id_value);
 // La valeur attendue est typiquement 0xA000
 
 
-### Configuration des registres
+### 🔹Configuration des registres
 
 Pour configurer le CODEC selon les spécifications du TP (Fréquence d'échantillonnage de 48 kHz, interface I2S en mode esclave, etc.), les valeurs suivantes ont été déterminées et écrites dans les registres :
 
@@ -396,7 +396,7 @@ Pour configurer le CODEC selon les spécifications du TP (Fréquence d'échantil
 | `CHIP_ADCDAC_CTRL` | `0x0000` | Désactive le mute du DAC |
 | `CHIP_DAC_VOL` | `0x3C3C` | Règle le volume du DAC à 0dB (droite et gauche) |
 
-### Implémentation logicielle
+### 🔹Implémentation logicielle
 
 #### Initialisation dans `sgtl5000.c`
 
@@ -443,6 +443,5 @@ sgtl5000_handle.i2c_address = SGTL5000_I2C_ADDR_WRITE;
 
 // Configuration effective du CODEC
 sgtl5000_init(&sgtl5000_handle);
-```
 ```
 
