@@ -158,13 +158,11 @@ La capture ci-dessous montre le fonctionnement du **driver LED** piloté depuis 
 * `b` pour faire clignoter toutes les LED,
 * `k` pour lancer le chenillard.
 
-![Shell LED Control](images/control_led_shell.png)
-
+<img src="images/control_led_shell.png" alt="Shell LED Control" width="700"/>
 #### Résultat matériel sur la carte
 
 La photo suivante illustre l’allumage correct des LED confirmé par les commandes envoyées depuis le shell.
-
-![LED Test Board](images/specific_led.jpeg)
+<img src="images/specific_led.jpeg" alt="LED Test Board" width="500"/>
 
 Le pilotage des LED via le MCP23S17 a été encapsulé dans un **driver dédié**, permettant une organisation plus claire du code et une interaction simplifiée depuis le shell. Le driver repose sur une structure définie dans `leds.h`, regroupant les pointeurs de fonctions nécessaires : initialisation, écriture, lecture ainsi que différents modes de test des LED.
 
