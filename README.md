@@ -493,4 +493,45 @@ Signal de l'Horloge **MCLK** :
 Signal de l'Horloge **SCLK** :
 
 ![Signal de l'Horloge SCLK mesuré avec l'oscilloscope](images/sclk.png)
+---
 
+## 3.4 Génération de signal audio
+
+### 1. Génération d’un signal triangulaire
+
+Le signal triangulaire est produit en incrémentant ou décrémentant l'amplitude à un taux constant (`TRIANGLE_STEP`). La direction est inversée lorsque les limites d'amplitude maximales ou minimales sont atteintes.
+
+#### Code d'Implémentation
+
+Le code suivant est utilisé pour générer l'onde triangulaire et remplir le buffer de transmission audio (`audio_tx_buffer`) :
+
+```c
+// Déclaration des variables (exemple) :
+// float triangle_current_value = 0.0f; 
+// int triangle_direction = 1; // 1: montée, -1: descente
+// const float TRIANGLE_STEP = 0.5f; // Taux d'incrémentation (détermine la fréquence)
+// const float TRIANGLE_MAX_AMPLITUDE = 1000.0f; // Amplitude maximale
+
+for (int i = 0; i < AUDIO_BLOCK_SIZE; i++) {
+    triangle_current_value += triangle_direction * TRIANGLE_STEP;
+
+    // Détection et inversion au Maximum
+    if (triangle_current_value >= TRIANGLE_MAX_AMPLITUDE) {
+        triangle_current_value = TRIANGLE_MAX_AMPLITUDE; // Cap at max
+        triangle_direction = -1; // Change direction to falling
+    } 
+    // Détection et inversion au Minimum
+    else if (triangle_current_value <= -TRIANGLE_MAX_AMPLITUDE) {
+        triangle_current_value = -TRIANGLE_MAX_AMPLITUDE; // Cap at min
+        triangle_direction = 1; // Change direction to rising
+    }
+
+    // Conversion et assignation de l'échantillon pour les deux canaux
+    // (Note : Le cast vers uint16_t doit être adapté à la plage du DAC utilisé)
+    uint16_t output_sample = (uint16_t)triangle_current_value;
+
+    audio_tx_buffer[(2 * i)] = output_sample;     // Left Channel
+    audio_tx_buffer[(2 * i) + 1] = output_sample; // Right Channel
+}
+```
+![Capture d'écran de l'oscilloscope montrant une onde triangulaire](images/triang.png)
