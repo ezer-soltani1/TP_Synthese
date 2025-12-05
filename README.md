@@ -343,3 +343,15 @@ Ces configurations sont visibles dans la capture d'écran ci-dessous :
 
 ![DMA Config](images/dma_config.png)
 
+---
+
+### 🔹 Activation du Master Clock (MCLK)
+
+Avant de poursuivre, il est crucial d'activer l'horloge Master Clock (MCLK) pour le CODEC SGTL5000 afin d'assurer son bon fonctionnement. Cette activation se fait programmatiquement dans la fonction `main()`, juste après les initialisations des périphériques.
+
+La ligne de code suivante est ajoutée :
+
+```c
+HAL_SAI_ENABLE(&hsai_BlockA2);
+```
+
