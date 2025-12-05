@@ -481,7 +481,7 @@ Les fonctions `HAL_SAI_Transmit_DMA()` et `HAL_SAI_Receive_DMA()` sont utilisée
 // Start SAI DMA transfers
 HAL_SAI_Transmit_DMA(&hsai_BlockA2, (uint8_t*)audio_tx_buffer, AUDIO_BUFFER_SIZE);
 HAL_SAI_Receive_DMA(&hsai_BlockB2, (uint8_t*)audio_rx_buffer, AUDIO_BUFFER_SIZE);
-
+```
 ### Observation des Signaux d'Horloge Audio (MCLK et SCLK)
 
 Cette étape documente l'observation à l'oscilloscope des deux horloges principales utilisées par l'interface audio:
