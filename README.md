@@ -365,6 +365,18 @@ HAL_SAI_ENABLE(&hsai_BlockA2);
 
 Le CODEC SGTL5000 est piloté via l'interface I2C pour sa configuration interne (volumes, routage, horloges, etc.). Une bibliothèque dédiée composée des fichiers `sgtl5000.c` et `sgtl5000.h` a été développée pour encapsuler ces échanges.
 
+### ✅ Vérification du Signal MCLK
+
+Le but de cette étape est de confirmer la présence et la stabilité du signal d'horloge **MCLK** (**Master Clock**) à l'aide d'un oscilloscope.
+
+Le signal d'horloge **MCLK** est **présent** et se manifeste comme une **onde carrée** stable, essentielle au bon fonctionnement du composant ou de la carte testée.
+
+***
+
+### Capture d'Écran de l'Oscilloscope :
+
+![Signal de l'Horloge MCLK mesuré avec l'oscilloscope](images/scope_3.png)
+
 ### 🔹Lecture du CHIP_ID
 
 La première étape de validation consiste à lire le registre d'identification du composant. L'adresse I2C de base est `0x0A` (7 bits), ce qui correspond à `0x14` en écriture et `0x15` en lecture.
