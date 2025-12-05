@@ -361,6 +361,7 @@ La ligne de code suivante est ajoutée :
   MX_SAI2_Init();
   /* USER CODE BEGIN 2 */
 HAL_SAI_ENABLE(&hsai_BlockA2);
+```
 
 ## 3.2 Configuration du CODEC par l’I2C
 
@@ -371,11 +372,11 @@ Le CODEC SGTL5000 est piloté via l'interface I2C pour sa configuration interne 
 La première étape de validation consiste à lire le registre d'identification du composant. L'adresse I2C de base est `0x0A` (7 bits), ce qui correspond à `0x14` en écriture et `0x15` en lecture.
 
 Dans la fonction d'initialisation, nous lisons le registre `CHIP_ID` (0x0000) :
-```c
+
 uint16_t chip_id_value;
 sgtl5000_i2c_read_register(h_sgtl5000, SGTL5000_CHIP_ID, &chip_id_value);
 // La valeur attendue est typiquement 0xA000
-```
+
 
 ### Configuration des registres
 
