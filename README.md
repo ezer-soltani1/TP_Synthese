@@ -497,8 +497,6 @@ Signal de l'Horloge **SCLK** :
 
 ## 3.4 Génération de signal audio
 
-### 1. Génération d’un signal triangulaire
-
 Le signal triangulaire est produit en incrémentant ou décrémentant l'amplitude à un taux constant (`TRIANGLE_STEP`). La direction est inversée lorsque les limites d'amplitude maximales ou minimales sont atteintes.
 
 #### Code d'Implémentation
@@ -535,3 +533,11 @@ for (int i = 0; i < AUDIO_BLOCK_SIZE; i++) {
 }
 ```
 ![Capture d'écran de l'oscilloscope montrant une onde triangulaire](images/triang.png)
+
+## 3.4 Bypass numérique
+
+![Capture d'écran de l'oscilloscope montrant le Bypass numérique](images/test_ADC_DAC.png)
+
+L'affichage de l'oscilloscope confirme la réussite de l'implémentation du **Bypass Numérique** (ADC $\rightarrow$ DAC), où le signal analogique d'entrée (Trace 1, Jaune) est numérisé puis immédiatement reconstruit en sortie (Trace 2, Vert). Les deux signaux sont des ondes triangulaires (dents de scie) de fréquences très proches (environ $400 \text{ Hz}$), validant que le taux d'échantillonnage de l'ADC est adéquat pour capturer et restituer la forme d'onde. On note une différence d'amplitude significative (l'entrée étant d'environ $1.09 \text{ V}$ et la sortie d'environ $1.81 \text{ V}$), indiquant qu'un **gain** a été appliqué dans la chaîne numérique ou post-DAC. La fidélité de la forme d'onde démontre le bon fonctionnement et la synchronisation de base des périphériques d'acquisition (ADC) et de restitution (DAC).
+
+
